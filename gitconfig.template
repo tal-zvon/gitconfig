@@ -4,7 +4,7 @@
 [core]
     editor = vim
 [diff]
-    tool = vimdiff
+    tool = nvimdiff
 [difftool]
     prompt = false
     trustExitCode = true
@@ -26,3 +26,11 @@
     trustExitCode = true
 [pull]
     rebase = false
+[init]
+    defaultBranch = main
+[difftool "nvimdiff"]
+    cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd L\"
+[merge]
+    tool = nvimdiff
+[mergetool "nvimdiff"]
+    cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$BASE\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd J\"
