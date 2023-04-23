@@ -11,6 +11,7 @@ if [[ -e "$GITCONFIG_PATH" ]]
 then
     if [[ ! -e "$GITCONFIG_BACKUP_PATH" ]]
     then
+        echo "$GITCONFIG_PATH backed up to $GITCONFIG_BACKUP_PATH"
         cp -v "$GITCONFIG_PATH" "$GITCONFIG_BACKUP_PATH"
     fi
 fi
@@ -25,7 +26,12 @@ else
         echo "ERROR: Failed to download gitconfig.template" >&2
         exit 1
     fi
+    echo "$GITCONFIG_TEMPLATE_NAME downloaded to $GITCONFIG_PATH"
 fi
+
+echo "Setting name and email in $GITCONFIG_PATH"
 
 sed -i "s/{name}/$username/g" "$GITCONFIG_PATH"
 sed -i "s/{email}/$email/g" "$GITCONFIG_PATH"
+
+echo "$GITCONFIG_PATH Installed"
