@@ -15,6 +15,17 @@ then
     fi
 fi
 
-cp -v "$GITCONFIG_TEMPLATE_NAME" "$GITCONFIG_PATH"
+if [[ -e "$GITCONFIG_TEMPLATE_NAME" ]]
+then
+    cp -v "$GITCONFIG_TEMPLATE_NAME" "$GITCONFIG_PATH"
+else
+    curl -fsSL "https://raw.githubusercontent.com/tal-zvon/gitconfig/master/$GITCONFIG_TEMPLATE_NAME" > "$GITCONFIG_PATH"
+    if [[ $? != 0 ]]
+    then
+        echo "ERROR: Failed to download gitconfig.template" >&2
+        exit 1
+    fi
+fi
+
 sed -i "s/{name}/$username/g" "$GITCONFIG_PATH"
 sed -i "s/{email}/$email/g" "$GITCONFIG_PATH"
