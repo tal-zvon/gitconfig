@@ -1,0 +1,2 @@
+# gitconfig
+My git config
