@@ -4,8 +4,8 @@ GITCONFIG_TEMPLATE_NAME=gitconfig.template
 GITCONFIG_PATH=~/.gitconfig
 GITCONFIG_BACKUP_PATH=${GITCONFIG_PATH}.bkp
 
-read -p 'Username: ' username
-read -p 'Email: ' email
+read -p 'Git Username to Set: ' username
+read -p 'Git Email to Set: ' email
 
 if [[ -e "$GITCONFIG_PATH" ]]
 then
