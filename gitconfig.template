@@ -1,0 +1,28 @@
+[user]
+    name = {name}
+    email = {email}
+[core]
+    editor = vim
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+    trustExitCode = true
+[alias]
+    d = difftool
+    ll = log --oneline --graph --decorate --all
+[color]
+    ui = auto
+[credential]
+    helper = cache --timeout=86400
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[pager]
+    branch = false
+[mergetool]
+    trustExitCode = true
+[pull]
+    rebase = false
